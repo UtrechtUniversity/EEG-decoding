@@ -30,7 +30,10 @@ elseif length(isubjtrl)>1
 end
 
 % load trial selection     
-select = load([trlfolder filesep trlfiles(isubjtrl).name]);
+% -----------------------------------------------------------
+% select = load([trlfolder filesep trlfiles(isubjtrl).name]);
+% -----------------------------------------------------------
+select = load( fullfile(trlfolder, trlfiles(isubjtrl).name) );
 
 %% Load dataset                
 % check files in folder of this subjects
