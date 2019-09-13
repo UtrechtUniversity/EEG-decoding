@@ -17,7 +17,7 @@ function [data] = PSR_loadTimelock(datafolder,trlfolder,subfolder,subject,channe
 
 %% Load trial selection     
 % check files in folder of this subjects
-trlfiles = dir( [trlfolder filesep '*.mat'] );
+trlfiles = dir(fullfile(folderTRL, '*.mat'));
 
 % index of subjects file
 isubjtrl = find( arrayfun(@(x) ~isempty(strfind(trlfiles(x).name,subject)), 1:length(trlfiles)) );
