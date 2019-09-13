@@ -11,7 +11,7 @@ function PSR_setpaths(folderFT, folderCoSMoMVPA)
 		
 	%% CoSMoMVPA            
 	try
-		fprintf()
+		fprintf([folderCoSMoMVPA filesep 'mvpa'])
 	    addpath([folderCoSMoMVPA filesep 'mvpa'])
 	    cosmo_set_path;
 	catch
