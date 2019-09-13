@@ -16,13 +16,8 @@ end
 %% read from folder     
 if ~strcmp(extension,'isdir')
     % get filenames
-		disp([folder filesep '*' extension])
-    files = dir([folder filesep '*' extension]);
-
-
-disp(files);
-
-    filenames = cat(1,files.name);
+	files = dir(fullfile(folder, strcat('*', extension)));
+	filenames = cat(1,files.name);
     
     % print subject names
     names = cell(size(filenames,1),1);
