@@ -1,4 +1,4 @@
-function PSR_setpaths(folderFT, folderCoSMo)
+function PSR_setpaths(folderFT, folderCoSMoMVPA)
 %% PSR_SETPATHS Set paths to all folder that are required for the analysis
 	
 	%% Fieldtrip            
@@ -11,8 +11,8 @@ function PSR_setpaths(folderFT, folderCoSMo)
 		
 	%% CoSMoMVPA            
 	try
-	    %addpath([cd filesep 'CoSMoMVPA' filesep 'mvpa'])
-	    %cosmo_set_path;
+	    addpath([folderCoSMoMVPA filesep 'mvpa'])
+	    cosmo_set_path;
 	catch
 	    warning('CoSMoMVPA toolbox not found');
 	end
