@@ -17,6 +17,10 @@ end
 if ~strcmp(extension,'isdir')
     % get filenames
     files = dir([folder filesep '*' extension]);
+
+disp([folder filesep '*' extension])
+disp(files);
+
     filenames = cat(1,files.name);
     
     % print subject names
