@@ -16,9 +16,10 @@ end
 %% read from folder     
 if ~strcmp(extension,'isdir')
     % get filenames
+		disp([folder filesep '*' extension])
     files = dir([folder filesep '*' extension]);
 
-disp([folder filesep '*' extension])
+
 disp(files);
 
     filenames = cat(1,files.name);
