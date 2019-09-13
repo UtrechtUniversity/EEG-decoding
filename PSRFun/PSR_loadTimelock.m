@@ -34,7 +34,10 @@ select = load([trlfolder filesep trlfiles(isubjtrl).name]);
 
 %% Load dataset                
 % check files in folder of this subjects
-files = dir( [datafolder filesep '*.mat'] );
+% -------------------------------------------
+% files = dir( [datafolder filesep '*.mat'] );
+% -------------------------------------------
+files = dir(fullfile(datafolder, '*.mat'));
 
 % index of subjects file
 isubj = find( arrayfun(@(x) ~isempty(strfind(files(x).name,subject)), 1:length(files)) );
@@ -46,8 +49,11 @@ elseif length(isubj)>1
     error('More than 1 file found for subject %s in %s',subject,datafolder);
 end
 
-% load file                
-data = load([datafolder filesep files(isubj).name]);
+% load file     
+% ----------------------------------------------------           
+% data = load([datafolder filesep files(isubj).name]);
+% ---------------------------------------------------- 
+data = load( fullfile(datafolder, files(isubj).name) );
 
 %% Remove trials that were rejected after visual inspection
 % get alignment
