@@ -52,3 +52,9 @@ pip install https://github.com/RoelBrouwer/papermill/archive/matlab-translation.
 ```
 
 For documentation and usage [refer to the main repository](https://github.com/nteract/papermill#usage).
+
+## Notes from Casper:
+
+* libsvm: git clone https://github.com/cjlin1/libsvm.git -- in Matlab open downloaded folder and in console type 'make' (this is form unix-like systems) and the path towards the matlab folder needs to be added
+
+
