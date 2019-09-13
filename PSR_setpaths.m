@@ -10,13 +10,13 @@ function PSR_setpaths(folderFT, folderCoSMoMVPA)
 	end
 		
 	%% CoSMoMVPA            
-	try
+	%try
 		fprintf([folderCoSMoMVPA filesep 'mvpa'])
 	    addpath([folderCoSMoMVPA filesep 'mvpa'])
 	    cosmo_set_path;
-	catch
-	    warning('CoSMoMVPA toolbox not found');
-	end
+	%catch
+	    %warning('CoSMoMVPA toolbox not found');
+	%end
 
 	%% Custom functions     
 	addpath([cd filesep 'helperFun'])
