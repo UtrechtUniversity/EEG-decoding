@@ -1,4 +1,4 @@
-This folder contains an example model coded in Matlab
+This folder contains an example model coded in Python
 
 ## Usage
 This models can be run using the workflow described in the main folder of this repository.
