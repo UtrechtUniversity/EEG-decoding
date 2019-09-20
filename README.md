@@ -1,7 +1,17 @@
 # EEG-decoding
+This repository describes a flexible workflow for running and storing parameterized models.
+Models are coded in [Jupyter Notebooks](https://jupyter.readthedocs.io/en/latest/install.html) and run using [papermill](https://github.com/nteract/papermill) 
+The models may be
+*  retrieved from this repository or any folder you specify 
+*  run from the command line or in the Jupyter Notebook interface
+*  run with a customized set of parameters, and will be stored -together with the output- as a new workflow
+*  coded in Python, Matlab or R
 
-## Prerequisites
+## Installation
+
+###Prerequisites
 This guide is written with a Windows operating system in mind. Instructions for Mac OS or Linux are slightly different.
+
 ### Jupyter
 If you have not installed [Jupyter](https://jupyter.readthedocs.io/en/latest/install.html), do so first:
 ```
@@ -33,13 +43,13 @@ python setup.py install
 
 Note: Matlab Engine for Python does not support all Python versions. If the setup.py file can be run without problems, your default version is supported. Otherwise, you have to switch python versions.
 
-## Install the Matlab kernel for Jupyter
+### Install the Matlab kernel for Jupyter
 We will be using [this Matlab kernel](https://github.com/Calysto/matlab_kernel). The instructions listed below are based on [this guide](https://github.com/Calysto/matlab_kernel/blob/master/README.rst).
 
 1. Install the matlab_kernel package: ```pip3 install matlab_kernel```
 2. Test the installation by running: ```jupyter notebook``` and selecting "Matlab" from the "New" menu in the notebook interface.
 
-## Install papermill 
+### Install papermill 
 Papermill can be used to parameterize notebooks.
 Currently, the [main package](https://github.com/nteract/papermill) has no Matlab support, so for now, install [this fork](https://github.com/RoelBrouwer/papermill):
 
@@ -53,8 +63,9 @@ pip install https://github.com/RoelBrouwer/papermill/archive/matlab-translation.
 
 For documentation and usage [refer to the main repository](https://github.com/nteract/papermill#usage).
 
-## Notes from Casper:
+### Notes from Casper:
 
 * libsvm: git clone https://github.com/cjlin1/libsvm.git -- in Matlab open downloaded folder and in console type 'make' (this is form unix-like systems) and the path towards the matlab folder needs to be added
 
-
+## Usage
+TO DO: Describe running a workflow using the example models from this repository
