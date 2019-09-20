@@ -6,7 +6,7 @@ The models may be
 *  retrieved from this repository or any folder you specify 
 *  run from the command line or in the Jupyter Notebook interface
 *  run with a customized set of parameters, and will be stored -together with the output- as a new workflow
-*  coded in Python, Matlab or R
+*  coded in Python or Matlab
 
 ## Installation
 
