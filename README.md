@@ -1,6 +1,7 @@
 # EEG-decoding
 This repository describes a flexible workflow for running and storing parameterized models.
-Models are coded in [Jupyter Notebooks](https://jupyter.readthedocs.io/en/latest/install.html) and run using [papermill](https://github.com/nteract/papermill) 
+Models are coded in [Jupyter Notebooks](https://jupyter.readthedocs.io/en/latest/install.html) and run using [papermill](https://github.com/nteract/papermill) .
+
 The models may be
 *  retrieved from this repository or any folder you specify 
 *  run from the command line or in the Jupyter Notebook interface
