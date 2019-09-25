@@ -3,7 +3,7 @@ function PSR_setpaths(folderFT, folderCoSMoMVPA)
 
 	%% Fieldtrip
 	try
-		addpath(folderFT);
+		addpath(char(folderFT));
 		ft_defaults;
 	catch
 		error('FieldTrip folder not found');
@@ -11,7 +11,7 @@ function PSR_setpaths(folderFT, folderCoSMoMVPA)
 
 	%% CoSMoMVPA
 	try
-	    addpath(fullfile(folderCoSMoMVPA, 'mvpa'));
+	    addpath(fullfile(char(folderCoSMoMVPA), 'mvpa'));
 	    cosmo_set_path;
 	catch
 	    error('CoSMoMVPA toolbox not found');
