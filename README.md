@@ -3,7 +3,7 @@ This repository describes a flexible workflow for running and storing parameteri
 Models are coded in [Jupyter Notebooks](https://jupyter.readthedocs.io/en/latest/install.html) and run using [papermill](https://github.com/nteract/papermill) .
 
 The models may be
-*  retrieved from this repository or any folder you specify 
+*  retrieved from this repository or any folder you specify
 *  run from the command line or in the Jupyter Notebook interface
 *  run with a customized set of parameters, and will be stored -together with the output- as a new workflow
 *  coded in Python or Matlab
@@ -51,7 +51,7 @@ We will be using [this Matlab kernel](https://github.com/Calysto/matlab_kernel).
 1. Install the matlab_kernel package: ```pip3 install matlab_kernel```
 2. Test the installation by running: ```jupyter notebook``` and selecting "Matlab" from the "New" menu in the notebook interface.
 
-### Install papermill 
+### Install papermill
 Papermill can be used to parameterize notebooks.
 Currently, the [main package](https://github.com/nteract/papermill) has no Matlab support, so for now, install [this fork](https://github.com/RoelBrouwer/papermill):
 
@@ -66,6 +66,28 @@ pip install https://github.com/RoelBrouwer/papermill/archive/matlab-translation.
 For documentation and usage [refer to the main repository](https://github.com/nteract/papermill#usage).
 
 ### Notes from Casper:
+
+* install matlab 2017b
+
+* install anaconda (preferably 3.6, or 3.7 and add environment)
+
+* install matlab_engine, only possible with Python 3.6!!!!
+
+* install git (https://git-scm.com/download/win) for Window users
+
+* download fieldtrip
+
+* download cosmo
+
+* install EEG-decoding-software
+
+* create parameters.yaml file
+
+
+
+
+
+
 
 * libsvm: git clone https://github.com/cjlin1/libsvm.git -- in Matlab open downloaded folder and in console type 'make' (this is form unix-like systems) and the path towards the matlab folder needs to be added
 
