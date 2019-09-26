@@ -18,14 +18,14 @@ function PSR_setpaths(folderFT, folderCoSMoMVPA, folderLIBSVM)
 	end
 
 	%% libsvm
-	if ~isempty(folderLIBSVM)
+	if ~(strlength(folderLIBSVM) == 0)
 		try
 			addpath(fullfile(folderLIBSVM, 'matlab'));
 		catch
 			error('libsvm not found');
 		end
 	end
-	
+
 	%% Custom functions
 	addpath([cd filesep 'helperFun'])
 	addpath([cd filesep 'PSRFun'])
