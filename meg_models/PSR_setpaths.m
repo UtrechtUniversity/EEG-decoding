@@ -1,4 +1,4 @@
-function PSR_setpaths(folderFT, folderCoSMoMVPA)
+function PSR_setpaths(folderFT, folderCoSMoMVPA, folderLIBSVM)
 %% PSR_SETPATHS Set paths to all folder that are required for the analysis
 
 	%% Fieldtrip
@@ -17,6 +17,15 @@ function PSR_setpaths(folderFT, folderCoSMoMVPA)
 	    error('CoSMoMVPA toolbox not found');
 	end
 
+	%% libsvm
+	if ~isempty(folderLIBSVM)
+		try
+			addpath(fullfile(folderLIBSVM, 'matlab'));
+		catch
+			error('libsvm not found');
+		end
+	end
+	
 	%% Custom functions
 	addpath([cd filesep 'helperFun'])
 	addpath([cd filesep 'PSRFun'])
