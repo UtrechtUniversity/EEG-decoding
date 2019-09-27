@@ -1,7 +1,7 @@
 # EEG-decoding
 This repository describes a flexible workflow for running and storing parameterized models that are coded in [Jupyter Notebooks](https://jupyter.readthedocs.io/en/latest/install.html) 
 
-You may choose which to run a model in the Jupyter Notebook interface in your browser to inspect the code and run it interactively.
+You may choose to run a model in the Jupyter Notebook interface in your browser to inspect the code and run it interactively.
 
 Alternatively, you may choose to run a model from the command line with a customized set of parameters using [papermill](https://github.com/nteract/papermill).
 The output and the parametrized notebook are saved together as workflow. 
@@ -37,20 +37,21 @@ The prompt will respond with a message like: "Writing default config to: <path>"
 
 
 ### Install papermill
-If you would like to run notebooks from github repositories install papermill together with the extension 
+To run notebooks from the commandline you also need papermill.
+If you would like to run notebooks from github repositories, install papermill together with the extension 
 ```
 pip install git+https://github.com/UtrechtUniversity/EEG-decoding-software.git
 ```
 
 ## Usage
-You can run the model from the commandline with a custom set of parameters using papermill.
-You may either set the values for parameters one by one using ```-p``` or ```--parameters```
+You can run a model from the commandline with a custom set of parameters using papermill.
+For the [example notebook] (python_example/Demo_calc_BMI.ipynb) in this repository, the command looks like this
 ```
-papermill model.jasper -p [parameter1 value1] -p [parameter2 value2]
+papermill https://github.com/UtrechtUniversity/EEG-decoding/blob/master/python_example/Demo_calc_BMI.ipynb [path_to_out_dir] -p weight 108 -p length 1.54
 ```
-or you may provide a YAML file from which parameter values can be read using ```-f``` or ```--parameters_file``` 
+You may either set the values for parameters one by one using ```-p``` or ```--parameters```or you may provide a YAML file from which parameter values can be read using ```-f``` or ```--parameters_file``` 
 ```
-papermill model.jasper -f parameters.yaml
+papermill [path_to_model] [path_to_out_dir] -f parameters.yaml
 
 ```
-See also the instructions in the [papermill repository](https://github.com/nteract/papermill) 
+For more options running notebooks from the commandline, see the instructions in the [papermill repository](https://github.com/nteract/papermill) 
