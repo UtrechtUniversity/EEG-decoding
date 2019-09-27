@@ -45,7 +45,7 @@ pip install git+https://github.com/UtrechtUniversity/EEG-decoding-software.git
 
 ## Usage
 You can run a model from the commandline with a custom set of parameters using papermill.
-For the [example notebook] (python_example/Demo_calc_BMI.ipynb) in this repository, the command looks like this
+For the [example notebook] (https://github.com/UtrechtUniversity/EEG-decoding/tree/master/python_example/Demo_calc_BMI.ipynb) in this repository, the command looks like this
 ```
 papermill https://github.com/UtrechtUniversity/EEG-decoding/blob/master/python_example/Demo_calc_BMI.ipynb [path_to_out_dir] -p weight 108 -p length 1.54
 ```
