@@ -1,3 +1,4 @@
+# MEG-decoding
 This folder contains a model to decode Magnetoencephalography (MEG) data and is coded in Matlab.
 The model uses an external library called CoSMoMVPA which starts the Machine Learning (SVM) process.  
 This libraries and its dependencies should be installed locally first (see instructions below) before the model can be run as a Jupyter Notebook with papermill.
@@ -5,7 +6,7 @@ This libraries and its dependencies should be installed locally first (see instr
 
 ## Installation
 
-###Prerequisites
+### Prerequisites
 These instructions are written with a Windows operating system in mind. Instructions for Mac OS or Linux are slightly different.
 
 ### Matlab
@@ -17,7 +18,7 @@ The older versions of Matlab are not compatible with the latest version of Pytho
 
 Summarizing:
 * When using Matlab R2019a, you need to install libsvm
-* When using Matlab R2017b or older, you need Python 3.6 or older
+* When using Matlab R2017b or older, you need Python 3.6 
 
 
 The next step is to install the [Matlab Engine API](https://nl.mathworks.com/help/matlab/matlab-engine-for-python.html) for Python. 
@@ -38,15 +39,32 @@ We will be using [this Matlab kernel](https://github.com/Calysto/matlab_kernel).
 1. Install the matlab_kernel package: ```pip3 install matlab_kernel```
 2. Test the installation by running: ```jupyter notebook``` and selecting "Matlab" from the "New" menu in the notebook interface.
 
+
+### Notes from Casper:
+
+* install matlab 2017b
+
+* install anaconda (preferably 3.6, or 3.7 and add environment)
+
+* install matlab_engine, only possible with Python 3.6!!!!
+
+* install git (https://git-scm.com/download/win) for Window users
+
+* download fieldtrip
+
+* download cosmo
+
+* install EEG-decoding-software
+
+* create parameters.yaml file
+
+* libsvm: git clone https://github.com/cjlin1/libsvm.git -- in Matlab open downloaded folder and in console type 'make' (this is form unix-like systems) and the path towards the matlab folder needs to be added
+
+
+
 ## Usage
-You can run the model from the commandline with a custom set of parameters using papermill.
-You may either set the values for parameters one by one using ```-p``` or ```--parameters```
-```
-papermill model.jasper -p [parameter1 value1] -p [parameter2 value2]
-```
-Using ```-f``` or ```--parameters_file``` you may provide a YAML file from which parameter values can be read
+Run the model from the commandline and provide a YAML file from which parameter values can be read 
 ```
 papermill model.jasper -f parameters.yaml
 
 ```
-See also the instructions in the [papermill repository](https://github.com/nteract/papermill) 
