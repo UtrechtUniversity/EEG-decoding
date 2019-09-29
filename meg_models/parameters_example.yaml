@@ -1,0 +1,9 @@
+folderIN: /Users/<username>/Downloads/EEG_Decoding/TIMELOCKED/S1
+folderTRL: /Users/<username>/Downloads/EEG_Decoding/TRIALS/REJECTVISUAL
+folderOUT: /Users/<username>/Downloads/EEG_Decoding
+folderFT: /Users/<username>/Downloads/EEG_Decoding/fieldtrip-20190910
+folderCoSMoMVPA: /Users/<username>/Downloads/EEG_Decoding/CoSMoMVPA
+folderLIBSVM: /Users/<username>/Downloads/EEG_Decoding/libsvm
+extension: .mat
+displaynow: false
+nchar: 9
