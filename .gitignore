@@ -5,3 +5,4 @@ TIMELOCKED/
 TRIALS/
 subject01_S1.mat
 .DS_Store
+*.m~
