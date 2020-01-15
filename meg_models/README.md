@@ -118,7 +118,7 @@ The folder necessary for running the scripts are defined in parameters.yaml as w
 ## 2. Input: Fieldtrip dataset
 Some background: For now, the script only works when the input data is in a fieldtrip (ft) format. The data can either be a ft ‘raw’ dataset (obtained after ft_preprocessing) or a ft ‘timelocked’ dataset (obtained after ft_timelockanalysis). The script will check whether or not the dataset is timelocked and will timelock if necessary. The ft timelocked format is necessary for later transformation to a CoSMoMVPA format (with cosmo_meeg_dataset). The dimensions in the timelocked dataformat are structured as: trials x channels x time (where time is often represented as samples/data points). The data is formatted as a structure with the following fields:
 
-| Field | Format |
+| Field | Structure |
 | --- | --- |
 | time | [1×samples double] |
 | label | {channels×1 cell} |
@@ -141,4 +141,17 @@ data.trialinfo( highSF , 3 ) = 2;
 ```
 
 I find the trials in which the SF was low (i.e. triggers nr 21 & 22) and place a number 1 in that row of column 3. I do the same for the other SF (triggers nr 23 & 24), but I give those a number 2. The same can be done for the two OR conditions and that information is placed in column 4. It is important to remember which column contains which property info, because you’ll need to specify the columns in the parameters _suffix_ and _balance_.
+
+## 3. CoSMoMVPA dataset
+This is not something you necessarily need to know in order for the script to run smoothly. The input and output data are the only things you actually get to see, not the CoSMo data itself. However, we use the CoSMoMVPA toolbox to run all the decoding and a CoSMo dataset has certain features that might be interesting to know about. As I mentioned before, the ft dataset needs a certain format (derived from the function ft_timelockanalysis) in order for it to be transformed into a CoSMo dataset. For the transforming, we defined the function _PSR\_mkCoSMoData_. This function uses CoSMo’s [cosmo_meeg_dataset](http://cosmomvpa.org/matlab/cosmo_meeg_dataset.html) which transforms MEEG data into the proper format. Similar to a fieldtrip dataset, CoSMo arranges the data as a structure, with the following fields:
+
+| Field | Structure |
+| --- | --- |
+|.samples |	[trials × (samples x channels) double] |
+|.fa | [1×1 struct] |
+|.a | [1×1 struct] |
+|.sa | [1×1 struct] |
+
+It’s a bit out of the scope of this instruction to explain to content of all fields now, but there are some important things to note: CoSMoMVPA has a bit of a counterintuitive way of naming certain aspects of the dataset. CoSMo uses the word ‘samples’ to refer to your trials. So the field .sa (= sample attributes) contains all the information on trials. CoSMo’s ‘features’ refers to your data points, i.e. with most datasets this means that features are: sample/time points x channels. The field .fa (= feature attributes) consequently contains information on the channels and sample/time points. You can always check [this page](http://www.cosmomvpa.org/cosmomvpa_concepts.html) for more information on CoSMo datasets.
+
 
