@@ -166,6 +166,7 @@ Once the CoSMo dataset has been properly defined, we balance the trials (with ou
 The script automatically saves an output dataset for each participant (now the files are saved as ‘Subject01’, ‘Subject02’, etc.) in the specified output folder. Each output dataset is a matlab structure called ‘S1’. If you load the dataset of one participant into matlab and call S1, you see that the data has the following fields:
 
 | Field | Structure |
+| --- | --- |
 | y | [1×1 struct] |
 | yhat | [1×1 struct] |
 | time | [1× time double] |
