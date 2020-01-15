@@ -92,3 +92,8 @@ The document parameters.yaml contains all parameters that can be altered. It can
 | --- | --- |
 | displaynow | _true_ or _false_ whether to display all subject names found in folderIN (used in _PSR\_subjects_ function). Can be useful to double check whether the script finds all the subjects you want to process. |
 | nchar | number of characters in subjectfile (used in _PSR\_subjects_), e.g. for file named ‘subject01’, nchar = 9 |
+| timeradius | number of neighboring time indices used to compute neighborhood intervals for temporal 'searchlight' (used in _cosmo\_interval\_neighborhood_) |
+| nfolds | number of folds for cross-validation |
+| ptest | proportion of data used as test-set to assess classifier accuracy (used in _PSR\_mkCoSMoPartitions\_BALANCE_), e.g. ptest = 0.1 |
+| suffix | Nx2 cell-array: {‘prop1’, col1; ‘prop2’, col2; ‘_propN_’, _colN_} where ‘prop’ is a string defining the to-be classified stimulus property and col represents the column number in data.trialinfo, containing trial specific condition information of the corresponding property (see section 2.1 for more info). Example: suffix = { 'SF', 3; 'OR', 4}. Spatial frequency and orientation will be classified. The trial specific spatial frequency conditions can be found in column 3 and those of orientation can be found in column 4 of data.trialinfo.<br />
+N.B.: The correct use of commas, semicolons and quotation marks in the cell-array is important! Also, the string (propN) will be used as fieldname in the output dataset (i.e. S1.accuracy.(propN), see section 4.1), so give your property a sensible suffix. |
