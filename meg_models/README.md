@@ -128,7 +128,7 @@ Some background: For now, the script only works when the input data is in a fiel
 | dimord | 'rpt_chan_time' |
 | cfg |	[1×1 struct] |
 
-### trialinfo
+### 2.1 trialinfo
 The field data.trialinfo is the only thing that needs changing in order for the decoding scripts to work. It is important that data.trialinfo contains a column with condition information for each stimulus property of importance. In my dataset, e.g., the stimulus properties were spatial frequency (SF) and orientation (OR). There were two SF conditions (high vs. low SF) and two ORs conditions (left vs. right OR). This means that my data.trialinfo will require at least two columns: one with the SF condition per trial (i.e. which SF were participants looking at during a specific trial) and one with the OR condition per trial. The numbers used to indicate one or the condition can be arbitrary (as long as they are consistent, of course).<br>
 A bit more practical: My original data.trialinfo already contains one column with the triggers I sent during data acquisition for all 4 conditions (2 SFs x 2 ORs) and one column with the trialnumbers of the trials that weren’t rejected in preprocessing. This means that my property specific trialinfo will be stored in the third and fourth column of data.trialinfo. I can use the condition info from my trigger column 1 to create separate columns for SF and OR conditions. See this small matlab code: 
 
@@ -139,4 +139,6 @@ highSF	     =  ( triggerInfo == 23 | triggerInfo == 24 );
 data.trialinfo( lowSF , 3 )  = 1;
 data.trialinfo( highSF , 3 ) = 2;
 ```
+
+I find the trials in which the SF was low (i.e. triggers nr 21 & 22) and place a number 1 in that row of column 3. I do the same for the other SF (triggers nr 23 & 24), but I give those a number 2. The same can be done for the two OR conditions and that information is placed in column 4. It is important to remember which column contains which property info, because you’ll need to specify the columns in the parameters _suffix_ and _balance_.
 
