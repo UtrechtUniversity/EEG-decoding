@@ -165,7 +165,7 @@ Once the CoSMo dataset has been properly defined, we balance the trials (with ou
 ### 4.1 What do we get?
 The script automatically saves an output dataset for each participant (now the files are saved as ‘Subject01’, ‘Subject02’, etc.) in the specified output folder. Each output dataset is a matlab structure called ‘S1’. If you load the dataset of one participant into matlab and call S1, you see that the data has the following fields:
 
-| Field | Structure |
+| Field | Value |
 | --- | --- |
 | y | [1×1 struct] |
 | yhat | [1×1 struct] |
@@ -175,10 +175,16 @@ The script automatically saves an output dataset for each participant (now the f
 
 The field S1.time contains a vector with the timepoints converted from samples into seconds (which comes in handy when plotting, see 4.2). All other fields of S1 are structs on their own, containing separate fields for the decoded property that is specified in the parameter ‘suffix’. So if I call S1.accuracy for my dataset, I get the following:
 
-| Field | Structure |
+| Field | Value |
 | --- | --- |
 | SF | [1×1280 double] |
 | OR | [1×1280 double] |
+
+Both SF and OR contain a vector with the average decoding accuracy (over all folds) over time. The accuracy is calculated using S1.y and S1.yhat. The first contains a matrix with the actual targets used for testing (per time point and fold). The latter is a similar matrix, but instead of the actual targets, it contains the predicted targets of the decoder over time. This way, the predictions can be compared to the actual test set, in order to calculate the predictor’s accuracy over time. This is stored in S1.accuracy. S1.dprime will depict the decoders sensitivity over time and per property.
+
+### 4.2 How do you use it?
+
+In order to access the accuracies of the SF decoding, you call S1.accuracy.SF. This can also be used to plot the accuracies: figure; plot( S1.accuracy.SF ). However, now you have sample number indexed on the x-axis. In order to get actual time in seconds on the x-axis, you can plot using two inputs: figure; plot( S1.time, S1.accuracy.SF ). In order to get the accuracies of all the subjects, you need some Matlab knowledge. You’ll probably want to loop through all subjects and put their accuracies in one big matrix. Then you can average and plot them all you like.
 
 
 
