@@ -100,7 +100,7 @@ The document parameters.yaml contains all parameters that can be altered. It can
 | channels | 'EEG' or ‘MEG’ if all channels should be used for classification. If you don’t want all channels, define a Nx1 cell-array with the selection of channels that should be included in classification, e.g. channels = {‘Iz’; ‘Oz’; ‘POz’} (used in PSR_loadTimelock).<br>(See [the Fieldtrip Toolbox](http://www.fieldtriptoolbox.org/reference/ft_channelselection/) for more input options) |
 | classifier | 'LDA' or 'SVM', type of classifier used (linear discriminant analysis or support vector machine) |
 
-The folder necessary for running the scripts are defined in parameters.yaml as well. The folders should always be specified as a string containing the entire directory toward the folder, e.g. folderFT = ‘/Users/Documents/MATLAB/Toolboxes/fieldtrip’ (note: the quotation marks make it a string).
+The folder necessary for running the scripts are defined in parameters.yaml as well. The folders should always be specified as a string containing the entire directory toward the folder, e.g. ```folderFT = ‘/Users/Documents/MATLAB/Toolboxes/fieldtrip’``` (note: the quotation marks make it a string).
 
 | Folder | Description |
 | --- | --- |
