@@ -98,3 +98,15 @@ The document parameters.yaml contains all parameters that can be altered. It can
 | suffix | Nx2 cell-array: {‘prop1’, col1; ‘prop2’, col2; ‘_propN_’, _colN_} where ‘prop’ is a string defining the to-be classified stimulus property and col represents the column number in data.trialinfo, containing trial specific condition information of the corresponding property (see section 2.1 for more info). Example: suffix = { 'SF', 3; 'OR', 4}. Spatial frequency and orientation will be classified. The trial specific spatial frequency conditions can be found in column 3 and those of orientation can be found in column 4 of data.trialinfo.<br>__N.B.__: The correct use of commas, semicolons and quotation marks in the cell-array is important! Also, the string (propN) will be used as fieldname in the output dataset (i.e. S1.accuracy.(propN), see section 4.1), so give your property a sensible suffix. |
 | balance | Nx2 cell-array: {‘prop1’, col1; ‘prop2’, col2; ‘propN’, colN} of stimulus properties that should be balanced during partitioning. See suffix for explanation on the variables. |
 | channels | 'EEG' or ‘MEG’ if all channels should be used for classification. If you don’t want all channels, define a Nx1 cell-array with the selection of channels that should be included in classification, e.g. channels = {‘Iz’; ‘Oz’; ‘POz’} (used in PSR_loadTimelock).<br>(See [the Fieldtrip Toolbox](http://www.fieldtriptoolbox.org/reference/ft_channelselection/) for more input options) |
+| classifier | 'LDA' or 'SVM', type of classifier used (linear discriminant analysis or support vector machine) |
+
+The folder necessary for running the scripts are defined in parameters.yaml as well. The folders should always be specified as a string containing the entire directory toward the folder, e.g. folderFT = ‘/Users/Documents/MATLAB/Toolboxes/fieldtrip’ (note: the quotation marks make it a string).
+
+| Folder | Description |
+| --- | --- |
+| folderFT | folder with FieldTrip toolbox |
+| folderCoSMoMVPA | folder with CoSMoMVPA toolbox |
+| folderLIBSVM | folder with libsvm toolbox |
+| folderIN | folder with to-be classified data (raw or timelocked ft dataset) |
+| folderOUT | folder where output data will be saved |
+| extension | string with the extension of the input datafile (now only '.mat’) |
