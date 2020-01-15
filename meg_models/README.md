@@ -90,4 +90,5 @@ The document parameters.yaml contains all parameters that can be altered. It can
 
 | Parameter | Description |
 | --- | --- |
-| hello | foo |
+| displaynow | _true_ or _false_ whether to display all subject names found in folderIN (used in _PSR\_subjects_ function). Can be useful to double check whether the script finds all the subjects you want to process. |
+| nchar | number of characters in subjectfile (used in _PSR\_subjects_), e.g. for file named ‘subject01’, nchar = 9 |
