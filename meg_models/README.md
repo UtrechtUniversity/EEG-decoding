@@ -118,7 +118,7 @@ The folder necessary for running the scripts are defined in parameters.yaml as w
 ## 2. Input: Fieldtrip dataset
 Some background: For now, the script only works when the input data is in a fieldtrip (ft) format. The data can either be a ft ‘raw’ dataset (obtained after ft_preprocessing) or a ft ‘timelocked’ dataset (obtained after ft_timelockanalysis). The script will check whether or not the dataset is timelocked and will timelock if necessary. The ft timelocked format is necessary for later transformation to a CoSMoMVPA format (with cosmo_meeg_dataset). The dimensions in the timelocked dataformat are structured as: trials x channels x time (where time is often represented as samples/data points). The data is formatted as a structure with the following fields:
 
-| Field | Structure |
+| Field | Value |
 | --- | --- |
 | time | [1×samples double] |
 | label | {channels×1 cell} |
@@ -145,7 +145,7 @@ I find the trials in which the SF was low (i.e. triggers nr 21 & 22) and place a
 ## 3. CoSMoMVPA dataset
 This is not something you necessarily need to know in order for the script to run smoothly. The input and output data are the only things you actually get to see, not the CoSMo data itself. However, we use the CoSMoMVPA toolbox to run all the decoding and a CoSMo dataset has certain features that might be interesting to know about. As I mentioned before, the ft dataset needs a certain format (derived from the function ft_timelockanalysis) in order for it to be transformed into a CoSMo dataset. For the transforming, we defined the function _PSR\_mkCoSMoData_. This function uses CoSMo’s [cosmo_meeg_dataset](http://cosmomvpa.org/matlab/cosmo_meeg_dataset.html) which transforms MEEG data into the proper format. Similar to a fieldtrip dataset, CoSMo arranges the data as a structure, with the following fields:
 
-| Field | Structure |
+| Field | Value |
 | --- | --- |
 |.samples |	[trials × (samples x channels) double] |
 |.fa | [1×1 struct] |
@@ -172,6 +172,14 @@ The script automatically saves an output dataset for each participant (now the f
 | time | [1× time double] |
 | accuracy | [1×1 struct] |
 | dprime | [1×1 struct] |
+
+The field S1.time contains a vector with the timepoints converted from samples into seconds (which comes in handy when plotting, see 4.2). All other fields of S1 are structs on their own, containing separate fields for the decoded property that is specified in the parameter ‘suffix’. So if I call S1.accuracy for my dataset, I get the following:
+
+| Field | Structure |
+| --- | --- |
+| SF | [1×1280 double] |
+| OR | [1×1280 double] |
+
 
 
 
