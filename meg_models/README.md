@@ -80,3 +80,14 @@ example of such a YAML file can be found in the repo (parameters_example.yaml)
 ```
 papermill model.jasper.json [path_to_out_file] -f parameters.yaml
 ```
+
+# Time-resolved decoding
+
+This script uses Multivariate Pattern Analysis (MVPA) to decode certain stimulus properties from MEG or EEG data over time. The input dataset (per subject) should be a FieldTrip structure with fully preprocessed and timelocked M/EEG data. The structure should contain trial specific condition information for each property that will be decoded (in the data.trialinfo field, see section 2.1). Decoding is run with the CoSMoMVPA toolbox, using one of two classifiers: linear discriminant analysis (LDA) or a support vector machine (SVM). The subsets of data used for training and testing the classifier are balanced over the properties as defined in the parameter balance. The output dataset (per subject) is a structure that contains the average performance and sensitivity of the decoder over time for each specified property. This dataset can be plotted in order to depict the classification performance over time. The dataset could also be used as an input for subsequent permutation (i.e. for statistics).
+
+## 1. Input parameters
+The document parameters.yaml contains all parameters that can be altered. It can be opened as a simple .txt file with a text editor. The following parameters can be edited:
+
+| Parameter | Description |
+| --- | --- |
+| hello | foo |
