@@ -114,3 +114,17 @@ The folder necessary for running the scripts are defined in parameters.yaml as w
 | folderIN | folder with to-be classified data (raw or timelocked ft dataset) |
 | folderOUT | folder where output data will be saved |
 | extension | string with the extension of the input datafile (now only '.mat’) |
+
+## 2. Input: Fieldtrip dataset
+Some background: For now, the script only works when the input data is in a fieldtrip (ft) format. The data can either be a ft ‘raw’ dataset (obtained after ft_preprocessing) or a ft ‘timelocked’ dataset (obtained after ft_timelockanalysis). The script will check whether or not the dataset is timelocked and will timelock if necessary. The ft timelocked format is necessary for later transformation to a CoSMoMVPA format (with cosmo_meeg_dataset). The dimensions in the timelocked dataformat are structured as: trials x channels x time (where time is often represented as samples/data points). The data is formatted as a structure with the following fields:
+
+| Field | Format |
+| --- | --- |
+| time | [1×samples double] |
+| label | {channels×1 cell} |
+| sampleinfo | [trials×2 double] |
+| trial | [trials×channels×samples double] |
+| trialinfo | [trials×N double] |
+| dimord | 'rpt_chan_time' |
+| cfg |	[1×1 struct] |
+
