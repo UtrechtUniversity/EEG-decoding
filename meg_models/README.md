@@ -185,7 +185,3 @@ Both SF and OR contain a vector with the average decoding accuracy (over all fol
 ### 4.2 How do you use it?
 
 In order to access the accuracies of the SF decoding, you call S1.accuracy.SF. This can also be used to plot the accuracies: figure; plot( S1.accuracy.SF ). However, now you have sample number indexed on the x-axis. In order to get actual time in seconds on the x-axis, you can plot using two inputs: figure; plot( S1.time, S1.accuracy.SF ). In order to get the accuracies of all the subjects, you need some Matlab knowledge. You’ll probably want to loop through all subjects and put their accuracies in one big matrix. Then you can average and plot them all you like.
-
-
-
-
