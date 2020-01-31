@@ -32,7 +32,7 @@ pip install gitmiller
 ## Usage
 The gitmiller commandline-interface requires several parameters which are described in [parameters.yaml](parameters.yaml).  If you would like to override certain variables in your notebook, add the variables and values in the yaml file under the papermill key. 
 
-The [GitMiller repository](`https://github.com/UtrechtUniversity/GitMiller/tree/master/example) contains a folder with an **example notebook**. To run this example create the following yaml file
+The [GitMiller repository](https://github.com/UtrechtUniversity/GitMiller/tree/master/example) contains a folder with an **example notebook**. To run this example create the following yaml file
 
     repository: https://github.com/UtrechtUniversity/GitMiller/tree/master/example
     username: <GITHUB USERNAME>
