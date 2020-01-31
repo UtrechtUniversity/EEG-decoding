@@ -1,9 +1,18 @@
-folderIN: /Users/<username>/Downloads/EEG_Decoding/TIMELOCKED/S1
-folderTRL: /Users/<username>/Downloads/EEG_Decoding/TRIALS/REJECTVISUAL
-folderOUT: /Users/<username>/Downloads/EEG_Decoding
-folderFT: /Users/<username>/Downloads/EEG_Decoding/fieldtrip-20190910
-folderCoSMoMVPA: /Users/<username>/Downloads/EEG_Decoding/CoSMoMVPA
-folderLIBSVM: /Users/<username>/Downloads/EEG_Decoding/libsvm
-extension: .mat
-displaynow: false
-nchar: 9
+repository: https://github.com/UtrechtUniversity/EEG-decoding/tree/master/meg_models
+username: <GITHUB USERNAME>
+password: <GITHUB PASSWORD>
+notebook: PSR_MPVA_crossvalidation_fix_main.ipynb
+output: <PATH-TO-OUTPUT-FOLDER>
+
+papermill:
+    folderIN: <PATH-TO-TMP-FOLDER>/UtrechtUniversity/EEG_Decoding/meg_models/TIMELOCKED/S1
+    folderTRL: <PATH-TO-TMP-FOLDER>/UtrechtUniversity/EEG_Decoding/meg_models/TRIALS/REJECTVISUAL
+    folderOUT: <PATH-TO-OUTPUT-FOLDER>
+    folderFT: <PATH-TO-FIELDTRIPOUTPUT-FOLDER>
+    folderCoSMoMVPA: <PATH-TO-COSMO-FOLDER>
+    folderLIBSVM:  <PATH-TO-LIBSVM-FOLDER>
+    extension: .mat
+    displaynow: false
+    nchar: 9
+    suffix: ['SF', 8, 'OR', 10]
+    balance: ['SF', 8, 'OR', 10]
